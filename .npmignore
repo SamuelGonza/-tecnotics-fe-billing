@@ -1,0 +1,16 @@
+src/
+.cursor/
+node_modules/
+*.log
+
+# Config files
+tsconfig.json
+rollup.config.js
+vite.config.ts
+.gitignore
+
+# Editor
+.vscode/
+.idea/
+
+

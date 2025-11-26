@@ -1,0 +1,755 @@
+/**
+ * Tema Clean - Estilo minimalista y moderno
+ */
+
+@import url('./base.css');
+
+.tecnotics-theme-clean {
+  font-family: 'Inter', sans-serif;
+  color: #1a1a1a;
+}
+
+.tecnotics-theme-clean .tecnotics-container {
+  background: #fafafa;
+  padding: 0;
+  min-height: 100%;
+}
+
+/* Header con logo y número de factura */
+.tecnotics-theme-clean .tecnotics-invoice-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 24px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.tecnotics-theme-clean .tecnotics-logo-container {
+  flex-shrink: 0;
+}
+
+.tecnotics-theme-clean .tecnotics-billing-logo {
+  max-width: 250px;
+  width: auto;
+  height: auto;
+  display: block;
+}
+
+.tecnotics-theme-clean .tecnotics-invoice-info {
+  text-align: right;
+}
+
+.tecnotics-theme-clean .tecnotics-invoice-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--primary-color);
+  margin: 0 0 8px 0;
+}
+
+.tecnotics-theme-clean .tecnotics-invoice-number {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin: 0 0 5px 0;
+}
+
+.tecnotics-theme-clean .tecnotics-invoice-date {
+  font-size: 13px;
+  color: #666;
+  margin: 0;
+}
+
+.tecnotics-theme-clean .tecnotics-company-info {
+  margin-bottom: 16px;
+}
+
+.tecnotics-theme-clean .tecnotics-company-name {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin: 0;
+}
+
+/* Banner informativo */
+.tecnotics-theme-clean .tecnotics-info-banner {
+  background: #28a745;
+  color: #fff;
+  padding: 14px 24px;
+  margin-bottom: 24px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* Información de la factura */
+.tecnotics-theme-clean .tecnotics-invoice-details {
+  background: #fafafa;
+  padding: 20px;
+  margin-bottom: 24px;
+  border-radius: 6px;
+  border-left: 4px solid var(--secondary-color);
+}
+
+.tecnotics-theme-clean .tecnotics-invoice-row {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 16px;
+}
+
+.tecnotics-theme-clean .tecnotics-invoice-row:last-child {
+  margin-bottom: 0;
+}
+
+.tecnotics-theme-clean .tecnotics-field-group {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.tecnotics-theme-clean .tecnotics-field-full {
+  flex: 1 0 100%;
+}
+
+.tecnotics-theme-clean .tecnotics-input-inline {
+  flex: 1;
+  min-width: 0;
+}
+
+.tecnotics-theme-clean .tecnotics-subtitle {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--primary-color);
+  margin: 0;
+}
+
+/* Tabla de impuestos */
+.tecnotics-theme-clean .tecnotics-tax-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  margin-top: 10px;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.tecnotics-theme-clean .tecnotics-tax-table th {
+  background: #fafafa;
+  padding: 12px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 12px;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.tecnotics-theme-clean .tecnotics-tax-table td {
+  padding: 12px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.tecnotics-theme-clean .tecnotics-section-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--primary-color);
+  margin: 0 0 10px 0;
+}
+
+/* Totales detallados */
+.tecnotics-theme-clean .tecnotics-totals-detailed {
+  background: #fafafa;
+  padding: 24px;
+  border: 1px solid #e5e5e5;
+  border-radius: 6px;
+  margin-bottom: 20px;
+}
+
+.tecnotics-theme-clean .tecnotics-totals-title {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--primary-color);
+  margin: 0 0 16px 0;
+  border-bottom: 1px solid var(--primary-color);
+  padding-bottom: 10px;
+}
+
+.tecnotics-theme-clean .tecnotics-zero-pesos {
+  text-align: center;
+  font-weight: 500;
+  color: #666;
+  margin-top: 12px;
+}
+
+/* Footer con créditos */
+.tecnotics-theme-clean .tecnotics-footer-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 0 40px 40px 40px;
+  background: #fafafa;
+  margin-top: 0;
+}
+
+.tecnotics-theme-clean .tecnotics-footer-container {
+  max-width: 1400px;
+  width: 100%;
+  background: linear-gradient(135deg, var(--primary-color) 0%, #003d52 100%);
+  padding: 24px 40px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border-top: 2px solid var(--secondary-color);
+}
+
+.tecnotics-theme-clean .tecnotics-footer-content {
+  text-align: center;
+}
+
+.tecnotics-theme-clean .tecnotics-footer-credits {
+  color: #fff;
+}
+
+.tecnotics-theme-clean .tecnotics-footer-text {
+  margin: 0 0 6px 0;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 400;
+}
+
+.tecnotics-theme-clean .tecnotics-footer-alliance {
+  margin: 0;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.tecnotics-theme-clean .tecnotics-footer-link {
+  color: var(--secondary-color);
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.tecnotics-theme-clean .tecnotics-footer-link:hover {
+  color: #5fa3e8;
+  text-decoration: underline;
+}
+
+.tecnotics-theme-clean .tecnotics-layout {
+  max-width: 1400px;
+  margin: 40px auto 0 auto;
+  padding: 40px;
+  background: #fff;
+  width: 100%;
+}
+
+.tecnotics-theme-clean .tecnotics-header {
+  margin-bottom: 40px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.tecnotics-theme-clean .tecnotics-title {
+  font-size: 32px;
+  font-weight: 300;
+  color: #000;
+  margin: 0;
+  letter-spacing: -0.5px;
+}
+
+.tecnotics-theme-clean .tecnotics-section {
+  margin-bottom: 35px;
+  padding: 0;
+}
+
+.tecnotics-theme-clean .tecnotics-label {
+  display: block;
+  font-weight: 500;
+  color: #666;
+  margin-bottom: 10px;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.tecnotics-theme-clean .tecnotics-input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  font-size: 15px;
+  transition: all 0.2s;
+  box-sizing: border-box;
+  background: #fafafa;
+}
+
+.tecnotics-theme-clean .tecnotics-input:focus {
+  outline: none;
+  border-color: var(--secondary-color);
+  background: #fff;
+}
+
+.tecnotics-theme-clean .tecnotics-input-sm {
+  width: 80px;
+  padding: 8px 12px;
+}
+
+.tecnotics-theme-clean .tecnotics-btn {
+  padding: 12px 24px;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  background: var(--secondary-color);
+  color: #fff;
+}
+
+.tecnotics-theme-clean .tecnotics-btn-primary {
+  background: var(--secondary-color);
+  color: #fff;
+}
+
+.tecnotics-theme-clean .tecnotics-btn-primary:hover {
+  background: #3278c1;
+}
+
+.tecnotics-theme-clean .tecnotics-btn-primary:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.tecnotics-theme-clean .tecnotics-btn-danger {
+  background: #fff;
+  color: var(--tertiary-color);
+  border: 1px solid var(--tertiary-color);
+}
+
+.tecnotics-theme-clean .tecnotics-btn-danger:hover {
+  background: var(--tertiary-color);
+  color: #fff;
+}
+
+.tecnotics-theme-clean .tecnotics-btn-sm {
+  padding: 8px 16px;
+  font-size: 13px;
+}
+
+.tecnotics-theme-clean .tecnotics-btn-lg {
+  padding: 16px 32px;
+  font-size: 16px;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.tecnotics-theme-clean .tecnotics-btn-clear {
+  background: #fff;
+  color: var(--tertiary-color);
+  border: 1px solid var(--tertiary-color);
+  padding: 10px 16px;
+  margin-left: 10px;
+  border-radius: 6px;
+}
+
+.tecnotics-theme-clean .tecnotics-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.tecnotics-theme-clean .tecnotics-table th {
+  background: #fafafa;
+  color: #666;
+  padding: 14px 16px;
+  text-align: left;
+  font-weight: 500;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.tecnotics-theme-clean .tecnotics-table td {
+  padding: 14px 16px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.tecnotics-theme-clean .tecnotics-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.tecnotics-theme-clean .tecnotics-table tbody tr:hover {
+  background: #fafafa;
+}
+
+.tecnotics-theme-clean .tecnotics-table-empty {
+  text-align: center;
+  color: #999;
+  padding: 40px !important;
+  font-size: 14px;
+}
+
+.tecnotics-theme-clean .tecnotics-table-total {
+  font-weight: 600;
+  color: #000;
+}
+
+.tecnotics-theme-clean .tecnotics-totals-box {
+  background: #fafafa;
+  padding: 24px;
+  border-radius: 8px;
+  border: 1px solid #e5e5e5;
+  margin-bottom: 20px;
+}
+
+.tecnotics-theme-clean .tecnotics-totals-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  font-size: 15px;
+}
+
+.tecnotics-theme-clean .tecnotics-totals-label {
+  color: #666;
+}
+
+.tecnotics-theme-clean .tecnotics-totals-value {
+  font-weight: 500;
+  color: #000;
+}
+
+.tecnotics-theme-clean .tecnotics-totals-row-total {
+  border-top: 1px solid #d0d0d0;
+  margin-top: 10px;
+  padding-top: 16px;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.tecnotics-theme-clean .tecnotics-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-top: none;
+  border-radius: 0 0 6px 6px;
+  max-height: 350px;
+  overflow-y: auto;
+  z-index: 1000;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+}
+
+.tecnotics-theme-clean .tecnotics-dropdown-item {
+  padding: 14px 16px;
+  cursor: pointer;
+  border-bottom: 1px solid #f5f5f5;
+  transition: background 0.15s;
+}
+
+.tecnotics-theme-clean .tecnotics-dropdown-item:hover {
+  background: #f8f8f8;
+}
+
+.tecnotics-theme-clean .tecnotics-client-selector,
+.tecnotics-theme-clean .tecnotics-product-search {
+  position: relative;
+}
+
+.tecnotics-theme-clean .tecnotics-input-group {
+  display: flex;
+  align-items: center;
+}
+
+.tecnotics-theme-clean .tecnotics-client-info {
+  margin-top: 16px;
+  padding: 16px;
+  background: #fafafa;
+  border: 1px solid #e5e5e5;
+  border-radius: 6px;
+}
+
+.tecnotics-theme-clean .tecnotics-client-info-row {
+  padding: 6px 0;
+  display: flex;
+  gap: 12px;
+  font-size: 14px;
+}
+
+.tecnotics-theme-clean .tecnotics-client-info-label {
+  font-weight: 500;
+  color: #666;
+  min-width: 80px;
+}
+
+.tecnotics-theme-clean .tecnotics-select {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  font-size: 15px;
+  box-sizing: border-box;
+  background: #fafafa;
+}
+
+.tecnotics-theme-clean .tecnotics-textarea {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  font-size: 15px;
+  font-family: inherit;
+  resize: vertical;
+  box-sizing: border-box;
+  background: #fafafa;
+}
+
+.tecnotics-theme-clean .tecnotics-product-selector-row {
+  display: flex;
+  gap: 16px;
+  align-items: flex-end;
+}
+
+.tecnotics-theme-clean .tecnotics-product-search {
+  flex: 1;
+}
+
+.tecnotics-theme-clean .tecnotics-quantity-input {
+  width: 120px;
+}
+
+.tecnotics-theme-clean .tecnotics-footer-section {
+  display: flex;
+  gap: 40px;
+  margin-top: 40px;
+}
+
+.tecnotics-theme-clean .tecnotics-footer-left {
+  flex: 1;
+}
+
+.tecnotics-theme-clean .tecnotics-footer-right {
+  width: 400px;
+}
+
+.tecnotics-theme-clean .tecnotics-form-group {
+  margin-bottom: 24px;
+}
+
+.tecnotics-theme-clean .tecnotics-loading,
+.tecnotics-theme-clean .tecnotics-error {
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.tecnotics-theme-clean .tecnotics-spinner {
+  width: 48px;
+  height: 48px;
+  border: 3px solid #f0f0f0;
+  border-top: 3px solid var(--secondary-color);
+  border-radius: 50%;
+  animation: tecnotics-spin 0.8s linear infinite;
+  margin: 0 auto 24px;
+}
+
+@keyframes tecnotics-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.tecnotics-theme-clean .tecnotics-error h2 {
+  color: var(--tertiary-color);
+  margin-bottom: 12px;
+  font-weight: 500;
+}
+
+.tecnotics-theme-clean .tecnotics-dropdown-item-name {
+  font-weight: 500;
+  margin-bottom: 4px;
+  color: #000;
+}
+
+.tecnotics-theme-clean .tecnotics-dropdown-item-doc {
+  font-size: 13px;
+  color: #888;
+}
+
+.tecnotics-theme-clean .tecnotics-product-preview {
+  margin-top: 12px;
+  padding: 12px 16px;
+  background: #fafafa;
+  border: 1px solid #e5e5e5;
+  border-radius: 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tecnotics-theme-clean .tecnotics-product-price {
+  color: #28a745;
+  font-weight: 500;
+}
+
+.tecnotics-theme-clean .tecnotics-table-product-name {
+  font-weight: 500;
+}
+
+.tecnotics-theme-clean .tecnotics-table-product-desc {
+  font-size: 13px;
+  color: #888;
+  margin-top: 4px;
+}
+
+/* Estilos para formularios de creación - Tema Clean */
+.tecnotics-theme-clean .tecnotics-label-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.tecnotics-theme-clean .tecnotics-btn-link {
+  background: none;
+  border: none;
+  color: var(--secondary-color);
+  padding: 0;
+  font-size: 14px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: color 0.2s;
+  font-weight: 500;
+}
+
+.tecnotics-theme-clean .tecnotics-btn-link:hover {
+  color: var(--primary-color);
+  text-decoration: underline;
+}
+
+.tecnotics-theme-clean .tecnotics-create-form {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  border: 2px solid #e9ecef;
+  margin-top: 12px;
+}
+
+.tecnotics-theme-clean .tecnotics-form-title {
+  margin: 0 0 20px 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--secondary-color);
+}
+
+.tecnotics-theme-clean .tecnotics-form-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.tecnotics-theme-clean .tecnotics-form-row .tecnotics-form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0;
+}
+
+.tecnotics-theme-clean .tecnotics-form-group .tecnotics-label {
+  margin-bottom: 6px;
+}
+
+.tecnotics-theme-clean .tecnotics-form-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid #e9ecef;
+}
+
+.tecnotics-theme-clean .tecnotics-textarea {
+  resize: vertical;
+  font-family: 'Inter', sans-serif;
+  min-height: 80px;
+}
+
+.tecnotics-theme-clean .tecnotics-btn-secondary {
+  background: #6c757d;
+  color: #fff;
+}
+
+.tecnotics-theme-clean .tecnotics-btn-secondary:hover {
+  background: #5a6268;
+}
+
+/* Ajustes de padding para modales - Tema Clean */
+.tecnotics-theme-clean .tecnotics-modal {
+  margin: 20px;
+}
+
+.tecnotics-theme-clean .tecnotics-modal-header {
+  padding: 24px 28px;
+}
+
+.tecnotics-theme-clean .tecnotics-modal-body {
+  padding: 28px;
+}
+
+.tecnotics-theme-clean .tecnotics-modal-content {
+  gap: 20px;
+}
+
+.tecnotics-theme-clean .tecnotics-result-item {
+  padding: 18px 20px;
+}
+
+.tecnotics-theme-clean .tecnotics-results-list {
+  margin-top: 4px;
+}
+
+.tecnotics-theme-clean .tecnotics-product-selection {
+  padding: 20px;
+}
+
+.tecnotics-theme-clean .tecnotics-form-section {
+  margin-top: 24px;
+  padding: 4px 0;
+}
+
+/* Estilos para el total y valor en letras - Tema Clean */
+.tecnotics-theme-clean .tecnotics-totals-row-total {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 2px solid var(--secondary-color);
+}
+
+.tecnotics-theme-clean .tecnotics-totals-label-total {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--secondary-color);
+}
+
+.tecnotics-theme-clean .tecnotics-totals-value-total {
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--secondary-color);
+}
+
+.tecnotics-theme-clean .tecnotics-totals-words {
+  margin-top: 16px;
+  padding: 14px;
+  background-color: #fafafa;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 13px;
+  color: #333;
+  line-height: 1.6;
+  border: 1px solid #e5e5e5;
+}
+
+.tecnotics-theme-clean .tecnotics-totals-words em {
+  font-style: normal;
+  font-weight: 500;
+}
+

@@ -1,0 +1,26 @@
+/**
+ * Estilos base para todos los temas de Tecnotics
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+/* Variables CSS de Tecnotics */
+:root {
+  --primary-color: #002737;
+  --secondary-color: #3f8cd9;
+  --tertiary-color: #ff4b4b;
+}
+
+/* Reset básico para el contenedor de Tecnotics */
+.tecnotics-container * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+.tecnotics-container {
+  font-family: 'Inter', sans-serif;
+}
+
+
