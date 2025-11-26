@@ -3,9 +3,8 @@
  */
 
 import React from 'react';
-import { MemoryRouter } from 'react-router-dom';
 import { Layout } from './Layout';
-import { InternalRouter } from '../router/internalRouter';
+import { BillingHome } from '../pages/BillingHome';
 import { useTecnotics } from '../hooks/useTecnotics';
 
 // Importar todos los estilos (base se importa automáticamente desde cada tema)
@@ -49,9 +48,7 @@ export const BillingComponent: React.FC<BillingComponentProps> = ({
 
   return (
     <Layout theme={theme}>
-      <MemoryRouter>
-        <InternalRouter />
-      </MemoryRouter>
+      <BillingHome />
     </Layout>
   );
 };
