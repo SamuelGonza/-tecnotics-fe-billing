@@ -5,6 +5,17 @@ Todos los cambios notables de este proyecto serán documentados en este archivo.
 El formato está basado en [Keep a Changelog](https://keepachangelog.com/es-ES/1.0.0/),
 y este proyecto adhiere a [Semantic Versioning](https://semver.org/lang/es/).
 
+## [1.2.0] - 2025-11-27
+
+### Agregado
+- ✨ Nuevo prop opcional `fe_url` en `TecnoticsProvider` para configurar URL personalizada de la API
+- 🔧 Soporte para desarrollo local: ahora puedes usar `fe_url="http://localhost:3000"` para desarrollo
+- 🌐 URL por defecto: `https://facturacionelectronicatt.tecnotics.co` (si no se especifica `fe_url`)
+
+### Mejorado
+- 📖 Documentación actualizada con ejemplos de uso de `fe_url`
+- ⚙️ Mayor flexibilidad para diferentes entornos (producción, staging, desarrollo)
+
 ## [1.1.0] - 2025-11-26
 
 ### Cambiado

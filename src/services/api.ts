@@ -4,15 +4,6 @@
 
 import { getAuthHeaders, AuthTokens } from './auth';
 
-/**
- * Obtiene la URL base del backend desde variables de entorno
- */
-function getBackendUrl(): string {
-  return import.meta.env.VITE_APP_FE_URL || 'https://facturacionelectronicatt.tecnotics.co';
-}
-
-const API_BASE_URL = getBackendUrl();
-
 // Tipos para las entidades según la API del backend
 export interface Client {
   _id: string;
@@ -124,9 +115,11 @@ export interface InvoiceResponse {
  */
 export class TecnoticsAPI {
   private tokens: AuthTokens;
+  private apiUrl: string;
 
-  constructor(tokens: AuthTokens) {
+  constructor(tokens: AuthTokens, apiUrl: string) {
     this.tokens = tokens;
+    this.apiUrl = apiUrl;
   }
 
   /**
@@ -134,7 +127,7 @@ export class TecnoticsAPI {
    */
   async getClients(page: number = 1, limit: number = 20): Promise<{ clients: Client[]; pagination: any }> {
     try {
-      const response = await fetch(`${API_BASE_URL}/clients?page=${page}&limit=${limit}`, {
+      const response = await fetch(`${this.apiUrl}/clients?page=${page}&limit=${limit}`, {
         method: 'GET',
         headers: getAuthHeaders(this.tokens),
         credentials: 'include', // Incluir cookies
@@ -160,7 +153,7 @@ export class TecnoticsAPI {
    */
   async createClient(clientData: CreateClientDTO): Promise<Client> {
     try {
-      const response = await fetch(`${API_BASE_URL}/clients`, {
+      const response = await fetch(`${this.apiUrl}/clients`, {
         method: 'POST',
         headers: getAuthHeaders(this.tokens),
         credentials: 'include',
@@ -185,7 +178,7 @@ export class TecnoticsAPI {
    */
   async getProducts(page: number = 1, limit: number = 20): Promise<{ items: Product[]; pagination: any }> {
     try {
-      const response = await fetch(`${API_BASE_URL}/items?page=${page}&limit=${limit}`, {
+      const response = await fetch(`${this.apiUrl}/items?page=${page}&limit=${limit}`, {
         method: 'GET',
         headers: getAuthHeaders(this.tokens),
         credentials: 'include', // Incluir cookies
@@ -212,7 +205,7 @@ export class TecnoticsAPI {
   async searchProducts(searchTerm: string, page: number = 1, limit: number = 20): Promise<{ items: Product[]; pagination: any }> {
     try {
       const response = await fetch(
-        `${API_BASE_URL}/items/search?search=${encodeURIComponent(searchTerm)}&page=${page}&limit=${limit}`,
+        `${this.apiUrl}/items/search?search=${encodeURIComponent(searchTerm)}&page=${page}&limit=${limit}`,
         {
           method: 'GET',
           headers: getAuthHeaders(this.tokens),
@@ -240,7 +233,7 @@ export class TecnoticsAPI {
    */
   async createProduct(productData: CreateProductDTO): Promise<Product> {
     try {
-      const response = await fetch(`${API_BASE_URL}/items`, {
+      const response = await fetch(`${this.apiUrl}/items`, {
         method: 'POST',
         headers: getAuthHeaders(this.tokens),
         credentials: 'include',
@@ -265,7 +258,7 @@ export class TecnoticsAPI {
    */
   async createInvoice(payload: InvoicePayload): Promise<InvoiceResponse> {
     try {
-      const response = await fetch(`${API_BASE_URL}/invoices`, {
+      const response = await fetch(`${this.apiUrl}/invoices`, {
         method: 'POST',
         headers: getAuthHeaders(this.tokens),
         credentials: 'include', // Incluir cookies
@@ -296,7 +289,7 @@ export class TecnoticsAPI {
   async searchClients(searchTerm: string, page: number = 1, limit: number = 20): Promise<{ clients: Client[]; pagination: any }> {
     try {
       const response = await fetch(
-        `${API_BASE_URL}/clients/search?search=${encodeURIComponent(searchTerm)}&page=${page}&limit=${limit}`,
+        `${this.apiUrl}/clients/search?search=${encodeURIComponent(searchTerm)}&page=${page}&limit=${limit}`,
         {
           method: 'GET',
           headers: getAuthHeaders(this.tokens),

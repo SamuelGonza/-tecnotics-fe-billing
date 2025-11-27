@@ -19,19 +19,11 @@ export interface AuthResponse {
 }
 
 /**
- * Obtiene la URL base del backend desde variables de entorno
- */
-function getBackendUrl(): string {
-  return import.meta.env.VITE_APP_FE_URL || 'https://facturacionelectronicatt.tecnotics.co';
-}
-
-/**
  * Verifica los tokens de autenticación contra el backend
  */
-export async function verifyAuth(tokens: AuthTokens): Promise<AuthResponse> {
+export async function verifyAuth(tokens: AuthTokens, apiUrl: string): Promise<AuthResponse> {
   try {
-    const backendUrl = getBackendUrl();
-    const response = await fetch(`${backendUrl}/company/signin/external`, {
+    const response = await fetch(`${apiUrl}/company/signin/external`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

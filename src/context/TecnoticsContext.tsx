@@ -13,6 +13,7 @@ export interface TecnoticsContextValue {
   isAuthenticated: boolean;
   isLoading: boolean;
   error: string | null;
+  apiUrl: string;
   companyData: {
     company_id: string;
     razon_social: string;
@@ -28,6 +29,7 @@ export const TecnoticsContext = createContext<TecnoticsContextValue | undefined>
 export interface TecnoticsProviderProps {
   company_id: string;
   simba_token: string;
+  fe_url?: string;
   children: ReactNode;
 }
 
@@ -37,8 +39,11 @@ export interface TecnoticsProviderProps {
 export const TecnoticsProvider: React.FC<TecnoticsProviderProps> = ({
   company_id,
   simba_token,
+  fe_url,
   children,
 }) => {
+  // URL de la API: usa fe_url si se proporciona, sino el default
+  const apiUrl = fe_url || 'https://facturacionelectronicatt.tecnotics.co';
   const [api, setApi] = useState<TecnoticsAPI | null>(null);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
@@ -61,7 +66,7 @@ export const TecnoticsProvider: React.FC<TecnoticsProviderProps> = ({
       };
 
       try {
-        const result = await verifyAuth(tokens);
+        const result = await verifyAuth(tokens, apiUrl);
 
         if (result.success && result.data) {
           // Guardar datos de la compañía
@@ -73,7 +78,7 @@ export const TecnoticsProvider: React.FC<TecnoticsProviderProps> = ({
           });
 
           // Crear instancia de API
-          const apiInstance = new TecnoticsAPI(tokens);
+          const apiInstance = new TecnoticsAPI(tokens, apiUrl);
           setApi(apiInstance);
           setIsAuthenticated(true);
           toast.success(`Bienvenido ${result.data.razon_social}`, {
@@ -100,13 +105,14 @@ export const TecnoticsProvider: React.FC<TecnoticsProviderProps> = ({
     };
 
     authenticate();
-  }, [company_id, simba_token]);
+  }, [company_id, simba_token, apiUrl]);
 
   const value: TecnoticsContextValue = {
     api,
     isAuthenticated,
     isLoading,
     error,
+    apiUrl,
     companyData,
   };
 

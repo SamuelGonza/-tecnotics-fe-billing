@@ -46,6 +46,20 @@ function App() {
 }
 ```
 
+### Desarrollo local con API personalizada
+
+Para desarrollo local o uso con una API diferente, puedes especificar la URL:
+
+```tsx
+<TecnoticsProvider
+  company_id="tu_company_id"
+  simba_token="tu_simba_token"
+  fe_url="http://localhost:3000"
+>
+  <BillingComponent theme="clean" />
+</TecnoticsProvider>
+```
+
 ### 2. Selecciona tu tema
 
 Elige entre 3 temas disponibles:
@@ -68,6 +82,7 @@ Provider principal que maneja la autenticación y proporciona acceso a la API.
 |------|------|-----------|-------------|
 | `company_id` | `string` | ✅ | ID de la empresa |
 | `simba_token` | `string` | ✅ | Token de autenticación Simba |
+| `fe_url` | `string` | ❌ | URL de la API (default: `https://facturacionelectronicatt.tecnotics.co`) |
 | `children` | `ReactNode` | ✅ | Componentes hijos |
 
 ### `<BillingComponent>`
