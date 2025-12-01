@@ -38,3 +38,6 @@ pnpm-debug.log*
 
 # TypeScript
 *.tsbuildinfo
+
+# Example app (solo para desarrollo local)
+example/

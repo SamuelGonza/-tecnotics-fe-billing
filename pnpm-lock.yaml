@@ -15,6 +15,9 @@ importers:
       '@rollup/plugin-commonjs':
         specifier: ^25.0.7
         version: 25.0.7(rollup@4.9.2)
+      '@rollup/plugin-image':
+        specifier: ^3.0.3
+        version: 3.0.3(rollup@4.9.2)
       '@rollup/plugin-node-resolve':
         specifier: ^15.2.3
         version: 15.2.3(rollup@4.9.2)
@@ -306,6 +309,15 @@ packages:
     engines: {node: '>=14.0.0'}
     peerDependencies:
       rollup: ^2.68.0||^3.0.0||^4.0.0
+    peerDependenciesMeta:
+      rollup:
+        optional: true
+
+  '@rollup/plugin-image@3.0.3':
+    resolution: {integrity: sha512-qXWQwsXpvD4trSb8PeFPFajp8JLpRtqqOeNYRUKnEQNHm7e5UP7fuSRcbjQAJ7wDZBbnJvSdY5ujNBQd9B1iFg==}
+    engines: {node: '>=14.0.0'}
+    peerDependencies:
+      rollup: ^1.20.0||^2.0.0||^3.0.0||^4.0.0
     peerDependenciesMeta:
       rollup:
         optional: true
@@ -718,6 +730,10 @@ packages:
 
   mdn-data@2.0.14:
     resolution: {integrity: sha512-dn6wd0uw5GsdswPFfsgMp5NSB0/aDe6fK94YJV/AJDYXL6HVLWBsxeq7js7Ad+mU2K9LAlwpk6kN2D5mwCPVow==}
+
+  mini-svg-data-uri@1.4.4:
+    resolution: {integrity: sha512-r9deDe9p5FJUPZAk3A59wGH7Ii9YrjjWw0jmw/liSbHl2CHiyXj6FcDXDu2K3TjVAXqiJdaw3xxwlZZr9E6nHg==}
+    hasBin: true
 
   minimatch@5.1.6:
     resolution: {integrity: sha512-lKwV/1brpG6mBUFHtb7NUmtABCb2WZZmm2wNiOA5hAb8VdCS4B3dtMWyvcoViccwAW/COERjXLt0zP1zXUN26g==}
@@ -1369,6 +1385,13 @@ snapshots:
     optionalDependencies:
       rollup: 4.9.2
 
+  '@rollup/plugin-image@3.0.3(rollup@4.9.2)':
+    dependencies:
+      '@rollup/pluginutils': 5.3.0(rollup@4.9.2)
+      mini-svg-data-uri: 1.4.4
+    optionalDependencies:
+      rollup: 4.9.2
+
   '@rollup/plugin-node-resolve@15.2.3(rollup@4.9.2)':
     dependencies:
       '@rollup/pluginutils': 5.3.0(rollup@4.9.2)
@@ -1772,6 +1795,8 @@ snapshots:
       '@jridgewell/sourcemap-codec': 1.5.5
 
   mdn-data@2.0.14: {}
+
+  mini-svg-data-uri@1.4.4: {}
 
   minimatch@5.1.6:
     dependencies:

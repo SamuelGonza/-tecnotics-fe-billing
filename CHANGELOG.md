@@ -5,6 +5,21 @@ Todos los cambios notables de este proyecto serán documentados en este archivo.
 El formato está basado en [Keep a Changelog](https://keepachangelog.com/es-ES/1.0.0/),
 y este proyecto adhiere a [Semantic Versioning](https://semver.org/lang/es/).
 
+## [1.1.2] - 2025-11-27
+
+### Agregado
+- 🎨 Título, prefijo y descripción dinámicos según el tipo de documento (Factura, Nota Débito, Nota Crédito)
+- 🖼️ Declaraciones de tipos TypeScript para archivos de imagen (PNG, JPG, SVG, WEBP)
+- 📁 Directorio `example/` para testing local (excluido de git)
+
+### Mejorado
+- 🔧 Método `getNextConsecutive` actualizado para usar POST con `tipoDocElectronico`, `company_id` y `prefixe`
+- 🖱️ Logo de facturación con `draggable={false}` para evitar arrastres accidentales
+
+### Arreglado
+- 🐛 Corregido error "Request with GET/HEAD method cannot have body" en `getNextConsecutive`
+- 🔧 Corregido error de TypeScript al importar archivos de imagen
+
 ## [1.1.1] - 2025-11-27
 
 ### Agregado
@@ -102,6 +117,7 @@ y este proyecto adhiere a [Semantic Versioning](https://semver.org/lang/es/).
 
 ---
 
+[1.1.2]: https://github.com/tecnotics/fe-billing/releases/tag/v1.1.2
 [1.1.1]: https://github.com/tecnotics/fe-billing/releases/tag/v1.1.1
 [1.1.0]: https://github.com/tecnotics/fe-billing/releases/tag/v1.1.0
 [1.0.0]: https://github.com/tecnotics/fe-billing/releases/tag/v1.0.0

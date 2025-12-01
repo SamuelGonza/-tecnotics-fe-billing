@@ -17,7 +17,7 @@ export const Footer: React.FC = () => {
               © {new Date().getFullYear()} <a href="https://tecnotics.com" target="_blank" rel="noopener noreferrer" className="tecnotics-footer-link">Tecnotics</a> - Todos los derechos reservados
             </p>
             <p className="tecnotics-footer-alliance">
-              En alianza con <a href="#" className="tecnotics-footer-link">SIMBA Software</a>
+              En alianza con SIMBA Electronics
             </p>
           </div>
         </div>

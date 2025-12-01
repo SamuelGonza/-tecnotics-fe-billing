@@ -133,11 +133,12 @@ export class TecnoticsAPI {
         credentials: 'include', // Incluir cookies
       });
 
+      const data = await response.json();
+
       if (!response.ok) {
-        throw new Error(`Error al obtener clientes: ${response.status}`);
+        throw new Error(data.message);
       }
 
-      const data = await response.json();
       return {
         clients: data.clients || [],
         pagination: data.pagination || {}
@@ -160,12 +161,12 @@ export class TecnoticsAPI {
         body: JSON.stringify(clientData),
       });
 
+      const data = await response.json();
+
       if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.error || `Error al crear cliente: ${response.status}`);
+        throw new Error(data.message);
       }
 
-      const data = await response.json();
       return data.client;
     } catch (error) {
       console.error('Error en createClient:', error);
@@ -184,11 +185,11 @@ export class TecnoticsAPI {
         credentials: 'include', // Incluir cookies
       });
 
+      const data = await response.json();
       if (!response.ok) {
-        throw new Error(`Error al obtener items: ${response.status}`);
+        throw new Error(data.message);
       }
 
-      const data = await response.json();
       return {
         items: data.items || [],
         pagination: data.pagination || {}
@@ -213,11 +214,12 @@ export class TecnoticsAPI {
         }
       );
 
+      const data = await response.json();
+
       if (!response.ok) {
-        throw new Error(`Error al buscar items: ${response.status}`);
+        throw new Error(data.error || data.message);
       }
 
-      const data = await response.json();
       return {
         items: data.items || [],
         pagination: data.pagination || {}
@@ -240,12 +242,12 @@ export class TecnoticsAPI {
         body: JSON.stringify(productData),
       });
 
+      const data = await response.json();
+
       if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.error || `Error al crear item: ${response.status}`);
+        throw new Error(data.message);
       }
 
-      const data = await response.json();
       return data.item;
     } catch (error) {
       console.error('Error en createProduct:', error);
@@ -265,11 +267,11 @@ export class TecnoticsAPI {
         body: JSON.stringify(payload),
       });
 
+      const data = await response.json();
       if (!response.ok) {
-        throw new Error(`Error al crear factura: ${response.status}`);
+        throw new Error(data.message);
       }
 
-      const data = await response.json();
       return {
         success: true,
         invoiceId: data._id || data.id,
@@ -297,18 +299,40 @@ export class TecnoticsAPI {
         }
       );
 
+      const data = await response.json();
       if (!response.ok) {
-        return { clients: [], pagination: {} };
+        throw new Error(data.message);
       }
 
-      const data = await response.json();
       return {
         clients: data.clients || [],
         pagination: data.pagination || {}
       };
     } catch (error) {
       console.error('Error en searchClients:', error);
-      return { clients: [], pagination: {} };
+      throw error;
+    }
+  }
+
+  async getNextConsecutive(tipoDocElectronico: string, company_id: string, prefixe: string): Promise<number> {
+    try {
+      const response = await fetch(`${this.apiUrl}/invoices/next-number`, {
+        method: 'POST',
+        headers: getAuthHeaders(this.tokens),
+        body: JSON.stringify({ tipoDocElectronico, company_id, prefixe }),
+        credentials: 'include',
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.message);
+      }
+
+      return data.numero;
+    } catch (error) {
+      console.error('Error en getNextConsecutive:', error);
+      throw error;
     }
   }
 }

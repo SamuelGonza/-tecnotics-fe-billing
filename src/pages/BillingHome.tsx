@@ -13,7 +13,7 @@ import { formatCurrencyWithSymbol } from '../utils/formatters';
 import { numberToWords } from '../utils/numberToWords';
 import { TipoDocElectronico } from '../types/enums';
 
-const LOGO_URL = 'https://res.cloudinary.com/appsftw/image/upload/v1763568310/tsev2krjkjpresg5l9qm.webp';
+import logo_fe from '../assets/favicon.png'
 
 /**
  * Página principal con el formulario completo de facturación
@@ -27,11 +27,11 @@ export const BillingHome: React.FC = () => {
   const [currency, setCurrency] = useState('COP');
   const [documentType, setDocumentType] = useState(TipoDocElectronico.FACTURA); // 01 = Factura, 02 = Nota débito, 03 = Nota crédito
   const [reference, setReference] = useState('');
-  const [invoiceNumber, setInvoiceNumber] = useState('');
   const [selectedPrefix, setSelectedPrefix] = useState(companyData?.prefixes?.[0] || '');
   const [elaborationDate, setElaborationDate] = useState(new Date().toISOString().split('T')[0]);
   const [dueDate, setDueDate] = useState(new Date().toISOString().split('T')[0]);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [next_consecutive, set_next_consecutive] = useState(0);
   
   // Estados para los modales
   const [showClientModal, setShowClientModal] = useState(false);
@@ -49,6 +49,16 @@ export const BillingHome: React.FC = () => {
       setSelectedPrefix(companyData.prefixes[0]);
     }
   }, [companyData, selectedPrefix]);
+
+  React.useEffect(() => {
+    if (selectedPrefix) {
+      api?.getNextConsecutive(documentType, companyData?.company_id || '', selectedPrefix).then((numero) => {
+        set_next_consecutive(numero);
+      }).catch((error) => {
+        toast.error(error.message);
+      });
+    }
+  }, [documentType, selectedPrefix ,companyData?.company_id]);
 
   // Agregar producto normal a la lista
   const handleAddProduct = (product: Product, quantity: number) => {
@@ -324,7 +334,7 @@ export const BillingHome: React.FC = () => {
 
       if (result.success) {
         toast.success(
-          `Factura creada exitosamente: ${result.invoiceNumber || result.invoiceId}`
+          `Factura creada exitosamente: ${selectedPrefix}-${next_consecutive}`
         );
         // Limpiar formulario
         setSelectedClient(null);
@@ -332,7 +342,6 @@ export const BillingHome: React.FC = () => {
         setNotes('');
         setPaymentMethod('1');
         setReference('');
-        setInvoiceNumber('');
         setDueDate('');
       } else {
         toast.error(result.message || 'Error al crear factura');
@@ -347,23 +356,51 @@ export const BillingHome: React.FC = () => {
   const totals = calculateTotals();
   const taxBases = calculateTaxBase();
 
+  // Función helper para obtener textos según el tipo de documento
+  const getDocumentTypeInfo = () => {
+    switch (documentType) {
+      case TipoDocElectronico.NOTA_DEBITO:
+        return {
+          title: 'NOTA DÉBITO',
+          prefix: selectedPrefix,
+          description: 'Nueva nota débito'
+        };
+      case TipoDocElectronico.NOTA_CREDITO:
+        return {
+          title: 'NOTA CRÉDITO',
+          prefix: selectedPrefix,
+          description: 'Nueva nota crédito'
+        };
+      case TipoDocElectronico.FACTURA:
+      default:
+        return {
+          title: 'FACTURA ELECTRÓNICA',
+          prefix: selectedPrefix,
+          description: 'Nueva factura electrónica'
+        };
+    }
+  };
+
+  const documentInfo = getDocumentTypeInfo();
+
   return (
     <div className="tecnotics-billing-home">
       {/* Header con logo y número de factura */}
       <div className="tecnotics-invoice-header">
         <div className="tecnotics-logo-container">
           <img 
-            src={LOGO_URL} 
+            src={logo_fe} 
             alt="Facturación Electrónica" 
             className="tecnotics-billing-logo"
+            draggable={false}
           />
         </div>
         <div className="tecnotics-invoice-info">
-          <h1 className="tecnotics-invoice-title">FACTURA ELECTRÓNICA</h1>
-          {invoiceNumber && (
-            <p className="tecnotics-invoice-number">FE #{invoiceNumber}</p>
+          <h1 className="tecnotics-invoice-title">{documentInfo.title}</h1>
+          {next_consecutive && (
+            <p className="tecnotics-invoice-number">{documentInfo.prefix} #{next_consecutive}</p>
           )}
-          <p className="tecnotics-invoice-date">Nueva factura electrónica-{new Date().toISOString().split('T')[0]}</p>
+          <p className="tecnotics-invoice-date">{documentInfo.description}-{new Date().toISOString().split('T')[0]}</p>
         </div>
       </div>
 
